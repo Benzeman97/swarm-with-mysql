@@ -3,6 +3,7 @@ package com.benz.docker.producer.api.service.impl;
 import com.benz.docker.producer.api.db.Database;
 import com.benz.docker.producer.api.entity.Product;
 import com.benz.docker.producer.api.exception.DataNotFoundException;
+import com.benz.docker.producer.api.model.ProductList;
 import com.benz.docker.producer.api.service.ProductService;
 import org.springframework.stereotype.Service;
 
@@ -13,8 +14,11 @@ public class ProductServiceImpl implements ProductService {
 
 
     @Override
-    public List<Product> getProducts() {
-        return Database.getProducts().orElseThrow(()->new DataNotFoundException("No Products available in the DB"));
+    public ProductList getProducts() {
+        List<Product> products=Database.getProducts().orElseThrow(()->new DataNotFoundException("No Products available in the DB"));
+        ProductList productList =new ProductList();
+        productList.setProductList(products);
+        return productList;
     }
 
     @Override

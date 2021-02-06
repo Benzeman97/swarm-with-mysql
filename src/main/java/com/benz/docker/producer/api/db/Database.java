@@ -23,7 +23,10 @@ public class Database {
 
     public static Optional<Product> findProduct(int productId)
     {
-         return Optional.of(products.get(productId));
+         Product prod = products.get(productId);
+         if(Objects.isNull(prod))
+             throw new DataNotFoundException(String.format("Product is not found with %d",productId));
+         return Optional.of(prod);
     }
 
     public static Product saveProduct(Product product)

@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  producer:
+    image: producer
+    container_name: docker-producer
+    ports:
+    - "9090:9090"
+    networks:
+      - producer-consumer
+    depends_on:
+      - consumer
+  consumer:
+      image: consumer
+      container_name: docker-consumer
+      ports:
+      - "9098:9098"
+      networks:
+        - producer-consumer
+
+networks:
+  producer-consumer:

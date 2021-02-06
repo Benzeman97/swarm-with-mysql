@@ -1,13 +1,12 @@
 package com.benz.docker.producer.api.controller;
 
 import com.benz.docker.producer.api.entity.Product;
+import com.benz.docker.producer.api.model.ProductList;
 import com.benz.docker.producer.api.service.ProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/prod")
@@ -21,7 +20,7 @@ public class ProductController {
     }
 
     @GetMapping(produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<List<Product>> getProducts()
+    public ResponseEntity<ProductList> getProducts()
     {
          return new ResponseEntity<>(productService.getProducts(), HttpStatus.OK);
     }
