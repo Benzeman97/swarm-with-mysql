@@ -1,0 +1,5 @@
+server:
+  port: 9098
+
+producer:
+  uri: "http://localhost:9090/prod"
