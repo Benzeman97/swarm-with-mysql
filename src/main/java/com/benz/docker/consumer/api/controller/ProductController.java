@@ -8,6 +8,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/prod")
 public class ProductController {
@@ -20,7 +22,7 @@ public class ProductController {
     }
 
     @GetMapping(produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<ProductList> getProducts()
+    public ResponseEntity<List<Product>> getProducts()
     {
          return new ResponseEntity<>(productService.getProducts(), HttpStatus.OK);
     }

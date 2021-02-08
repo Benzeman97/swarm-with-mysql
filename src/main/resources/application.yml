@@ -1,5 +1,8 @@
 server:
   port: 9098
+spring:
+  application:
+    name: docker-consumer
 
 producer:
-  uri: "http://localhost:9090/prod"
+  uri: "http://docker-producer:9090/prod"

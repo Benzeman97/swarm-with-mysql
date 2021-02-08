@@ -11,10 +11,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
+import java.util.List;
 import java.util.Objects;
 
 @Service
 public class ProductServiceImpl implements ProductService {
+
 
     private WebClient.Builder webClient;
 
@@ -27,9 +29,9 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public ProductList getProducts() {
-        return  webClient.build().get().uri(url)
-                .retrieve().bodyToMono(ProductList.class).block();
+    public List<Product> getProducts() {
+        return webClient.build().get().uri(url)
+                .retrieve().bodyToMono(ProductList.class).block().getProductList();
     }
 
     @Override
