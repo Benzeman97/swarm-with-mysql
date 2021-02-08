@@ -1,0 +1,1 @@
+insert into PRODUCT(prod_id,prod_name,units,price) values (1001,'Nafaz Benzema',25,300.0),(1002,'Kelly Brook',50,500.0);

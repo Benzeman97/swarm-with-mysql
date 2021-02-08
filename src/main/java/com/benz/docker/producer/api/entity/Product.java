@@ -1,18 +1,24 @@
 package com.benz.docker.producer.api.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@NoArgsConstructor
-@AllArgsConstructor
+import javax.persistence.*;
+import java.util.Objects;
+
+@Entity
+@Table(name = "product",schema = "HR")
 @Getter
 @Setter
 public class Product {
 
+    @Id
+    @Column(name = "prod_id")
     private int prodId;
+    @Column(name = "prod_name")
     private String prodName;
-    private int units;
-    private double price;
+    @Column(name = "units")
+    private Integer units;
+    @Column(name = "price")
+    private Double price;
 }

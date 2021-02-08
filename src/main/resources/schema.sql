@@ -1,0 +1,1 @@
+create table if not EXISTS PRODUCT(prod_id int,prod_name varchar(200),units int,price double,constraint pk_prodId primary key (prod_id));

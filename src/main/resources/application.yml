@@ -1,6 +1,8 @@
 spring:
   application:
-    name: docker-producer
+    name: docker-producerc
+  profiles:
+    active: dev
 
 server:
   port: 9090
