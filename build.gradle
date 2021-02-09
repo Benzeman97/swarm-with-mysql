@@ -33,7 +33,8 @@ dependencies {
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-   /* compile group: 'com.oracle', name: 'ojdbc6', version: '11.2.0.4'*/
+    compile 'org.springframework.boot:spring-boot-starter-actuator'
+    /* compile group: 'com.oracle', name: 'ojdbc6', version: '11.2.0.4'*/
 /*    compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.23'*/
 }
 

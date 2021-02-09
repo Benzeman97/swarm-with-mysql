@@ -6,9 +6,12 @@ services:
     container_name: docker-consumer
     ports:
     - "9098:9098"
+    restart: on-failure
     networks:
       - producer-consumer
     depends_on:
+      - producer
+    links:
       - producer
   producer:
       image: producer
@@ -17,7 +20,10 @@ services:
       - "9090:9090"
       networks:
         - producer-consumer
+      restart: on-failure
       depends_on:
+        - mysql
+      links:
         - mysql
   mysql:
     image: mysql:8
